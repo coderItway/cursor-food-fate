@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="title">今天吃什么？</view>
+  
+  <view class="card-container {{isAnimating ? 'animating' : ''}}">
+    <view class="card {{isAnimating ? 'flip' : ''}} {{hasPicked ? 'flipped' : ''}}">
+      <view class="card-inner">
+        <view class="card-front">
+          <text class="card-text">点击下方按钮抽取</text>
+        </view>
+        <view class="card-back">
+          <text class="card-text">{{selectedFood || '?'}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="options-section" wx:if="{{multipleOptions.length > 0}}">
+    <view class="options-title">或者试试这些：</view>
+    <view class="options-list">
+      <view class="option-item" wx:for="{{multipleOptions}}" wx:key="*this">
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <view class="button-group">
+    <button class="primary-btn" bindtap="pickRandomFood" disabled="{{isAnimating}}">
+      {{hasPicked ? '重新抽取' : '随机抽取'}}
+    </button>
+    <button class="secondary-btn" bindtap="getMultipleOptions" disabled="{{isAnimating}}">
+      获取更多选项
+    </button>
+  </view>
+</view> 
