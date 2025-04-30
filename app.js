@@ -15,6 +15,7 @@ App({
 
     // 获取用户信息
     console.log("test");
+    console.log("test");
   },
   globalData: {
     userInfo: null
